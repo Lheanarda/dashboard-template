@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    table{
+        @apply w-full
+    }
+
+    tr{
+        @apply w-full
+    }
+
+    th,td{
+        @apply text-left p-2 
+    }
+
+    td{
+        @apply  border border-green-500 w-[20%]
+    }
+
+    th{
+        @apply bg-primary cursor-pointer text-white border border-green-500
+    }
+    
+    /* remove default border */
+    select {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+}
+
+@layer components{
+    .background{
+        @apply bg-gradient-to-bl from-cyan-200 to-green-300 lg:h-screen w-screen flex items-center justify-center text-slate-900 dark:text-slate-200 dark:bg-gradient-to-br dark:from-green-800 dark:to-slate-600
+    }
+    .scrollbar-custom{
+        @apply !scrollbar-thumb-primary !scrollbar-thin !scrollbar-track-transparent
+    }
+
+    .custom-input{
+        @apply py-1 px-3 bg-white dark:bg-slate-100 dark:text-slate-900 border-2 border-primary focus:outline-none focus:outline-primary w-full
+    }
+
+    .input-group{
+        @apply flex flex-col w-full
+    }
+
+    .input-label{
+        @apply text-primary text-sm
+    }
+    .btn{
+        @apply py-1.5 px-3   bg-primary text-white w-full border-none  self-end max-w-full mt-3 lg:mt-0 text-center lg:text-left 
+    }
+
+    .table-container{
+        @apply overflow-auto w-full mx-auto mt-8 lg:mt-3 h-[58vh] lg:h-[50vh] scrollbar-custom
+    }
+}
+
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
