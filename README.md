@@ -4,6 +4,10 @@ You can change anything inside this project to adjust to your project requiremen
 If there's something that needs to be removed or improved from this template, please contact the repository owner.
 The feedback will help us to improve standardization in our projects in the future.
 
+## Demo
+
+https://dashboard-template-bbtrf3ls2-lheanarda.vercel.app/#/login
+
 ## Available Scripts
 
 In the project directory, you can run:
