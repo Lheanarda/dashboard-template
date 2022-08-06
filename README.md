@@ -234,3 +234,4 @@ Data definition for Global Components
 
 - If there any new endpoint you can put it inside folder Api
 - The redux only storing the data that need to be used extensively
+- You can add more alias for spesific path in `./config-overrides.js`
