@@ -6,7 +6,7 @@ The feedback will help us to improve standardization in our projects in the futu
 
 ## Demo
 
-https://dashboard-template-bbtrf3ls2-lheanarda.vercel.app/#/login
+https://dashboard-template-mocha.vercel.app/#/login
 
 ## Available Scripts
 
