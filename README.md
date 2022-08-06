@@ -1,6 +1,8 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project is already compatible with using `React Hooks`, [Make sure to learn about it first, before continuing]
+Don't forget to check on the <b>README</b> file for some notes and instructions.
+You can change anything inside this project to adjust to your project requirements.
+If there's something that needs to be removed or improved from this template, please contact the repository owner.
+The feedback will help us to improve standardization in our projects in the future.
 
 ## Available Scripts
 
@@ -29,18 +31,206 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## NOTES
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Folder Structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### File Naming
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Majority if not all code will be in `src/`.
+All files follows these naming rules:
 
-## Learn More
+- File that exports Component/Context uses `PascalCase`.
+- File that exports code other than above uses `camelCase`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Folder Naming
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+Folder that exports `more than one` components with the same level follows this structure:
+
+```
+  components/
+    ComponentA.js
+    ComponentB.js
+    ...OtherComponents.js
+```
+
+Folder that exports `one` major Component follows this structure:
+
+```
+  ComponentName/
+    ...OtherSupportingComponents.js
+    ComponentName.js
+    index.js
+```
+
+> Apply this only for components that have at least one internal component. If the component is self sufficient (no need to add any local internal file), then don't use folder, just use file.
+> e.g. rather than using
+>
+> ```
+> About/
+>   About.js
+>   index.js
+> ```
+>
+> use
+>
+> ```
+> About.js
+> ```
+
+> The intuition for this is the `ComponentName` only exports one component, with other components being used only internally inside the main component.
+> This means that if you see for example Home/ folder, then the only important thing is Home.js, which uses other components inside Home/ folder.
+> index.js will always `export default ComponentName` which can make the user of ComponentName imports the component without the need to specify ComponentName twice.
+> e.g. `import ComponentName from './src/component/ComponentName'`
+
+These folder naming rules applies also for nesting folders.
+e.g.
+
+```
+Home/
+  components/
+    Section1/
+      SectionTab/
+        Tab.js
+        SectionTab.js
+        index.js
+      Section1.js
+      index.js
+  Home.js
+  index.js
+```
+
+## Folder Structure
+
+### Apis
+
+Contain API's used inside application
+
+### Assets
+
+Contain static assets like fonts & imgs
+
+### Components
+
+Global Components
+
+### Theme Config
+
+Control initial behavior of the application, include Light / Dark Mode and Fullscreen mode settings
+
+### Layouts
+
+Contain components used for Sidebar and Navbar
+
+### Lib
+
+Contain Constants , Contexts, Hooks, and Utils that will be used globally inside application
+
+#### Pages and Modules
+
+These follows structure as below:
+
+```
+modules/
+  Home/
+    components/
+      ComponentA.js
+      ComponentB/
+        InternalComponent.js
+        ComponentB.js
+        index.js
+    Home.js
+    index.js
+  About.js
+pages/
+  HomePage.js
+  AboutPage.js
+```
+
+### Navigation
+
+Register sidebar navigation. Support nested navigation as exampled below :
+
+```
+ const navigations: Navigations = [
+  {
+    id: "group-medical",
+    navLink: "",
+    Icon: () => <></>,
+    title: "Medical",
+    children: [
+      {
+        id: "SUBDCHD",
+        navLink: "/group/SUBDCHD",
+        Icon: () => <></>,
+        title: "SUBDCHD",
+      },
+      {
+        id: "medical-tsj",
+        navLink: "/group/TSJ",
+        Icon: () => <></>,
+        title: "TSJ",
+      },
+    ],
+  },
+  {
+    id: "group-consumer",
+    navLink: "",
+    Icon: () => <></>,
+    title: "Consumer",
+    children: [
+      {
+        id: "group-kmmd",
+        navLink: "",
+        Icon: () => <></>,
+        title: "KMMD",
+        children: [
+          {
+            id: "KMMDB",
+            navLink: "/group/KMMDB",
+            Icon: () => <></>,
+            title: "KMMD B",
+          },
+          {
+            id: "KMMDC",
+            navLink: "/group/KMMDC",
+            Icon: () => <></>,
+            title: "KMMD C",
+          },
+        ],
+      },
+      {
+        id: "ConsExt",
+        navLink: "/group/ConsExt",
+        Icon: () => <></>,
+        title: "Cons Ext",
+      },
+    ],
+  },
+];
+```
+
+### Router
+
+Register routes inside application
+
+### Store
+
+Register every redux store inside application
+
+### Styles
+
+Place to make custom CSS
+
+### Typings
+
+Data definition for Global Components
+
+### Others
+
+- If there any new endpoint you can put it inside folder Api
+- The redux only storing the data that need to be used extensively

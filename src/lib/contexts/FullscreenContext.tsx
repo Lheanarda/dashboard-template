@@ -1,3 +1,4 @@
+import themeConfig from "@src/configs/themeConfig";
 import React, {
   createContext,
   Dispatch,
@@ -25,7 +26,7 @@ const getInitialPreference = () => {
   if (screenPrefs === "true") return true;
   else if (screenPrefs === "false") return false;
 
-  return true;
+  return themeConfig.defaultFullscreen;
 };
 
 export const FullscreenProvider: React.FC<FullscreenProviderProps> = ({
