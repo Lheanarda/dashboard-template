@@ -1,10 +1,10 @@
+import { lazyWithRetries } from "@src/lib/utils/core";
 import { Route } from "@src/typings/routes";
-import { lazy } from "react";
 
 const AuthRoutes: Route[] = [
   {
     path: "/login",
-    component: lazy(() => import("@src/pages/Login")),
+    component: lazyWithRetries(() => import("@src/pages/Login")),
     isAuth: true,
   },
 ];

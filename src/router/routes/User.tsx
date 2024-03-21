@@ -1,10 +1,10 @@
+import { lazyWithRetries } from "@src/lib/utils/core";
 import { Route } from "@src/typings/routes";
-import { lazy } from "react";
 
 const UserRoutes: Route[] = [
   {
     path: "/users",
-    component: lazy(() => import("@src/pages/User")),
+    component: lazyWithRetries(() => import("@src/pages/User")),
   },
 ];
 
